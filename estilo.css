@@ -1,13 +1,10 @@
-/* Variables para colores */
 :root {
-    --primary-color: #3498db;
+    --primary-color: #47adf1;
     --secondary-color: #2c3e50;
     --background-color: #f4f4f4;
     --card-background: #ffffff;
-    --text-color: #333;
+    --text-color: #2947f0;
 }
-
-/* Estilos Generales */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -16,16 +13,13 @@ body {
     color: var(--text-color);
     line-height: 1.6;
 }
-
 h1, h2 {
     color: var(--secondary-color);
 }
-
-/* Encabezado y Navegación */
 header {
     background-color: var(--card-background);
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(230, 70, 70, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -58,8 +52,11 @@ section {
 
 /* Sección Hero (Sobre Mí) */
 .hero {
-    background-color: #fefefe;
-    padding: 6rem 1rem;
+    background-color: var(--card-background);
+    padding: 3rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .hero h1 {
@@ -165,5 +162,189 @@ footer {
     padding: 1rem;
     background-color: var(--secondary-color);
     color: white;
-    margin-top: 2rem;
+}
+img.perfil-foto {
+    border-radius: 60%;
+    width: 200px;
+    height: 200px;
+}
+/* ---------------------------------------------------- */
+/* PANTALLA 1: MOBILE FIRST (0px a 479px) */
+/* ---------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Color de fondo inicial (Pantalla 1: Amarillo) */
+    background-color: rgb(246, 246, 11); 
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 1em;
+}
+
+/* Estilos de la cabecera y navegación */
+header {
+    background-color: rgb(246, 231, 11);
+    padding: 15px;
+    border: 3px solid rgb(212, 95, 32);
+    text-align: center;
+}
+.title {
+    background-color: blueviolet;
+    padding: 10px;
+}
+nav ul {
+    list-style: none;
+    padding-top: 10px;
+}
+nav li {
+    padding: 5px 0;
+}
+
+section {
+    padding: 1.5em 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.skills-list {
+    list-style-type: none;
+}
+
+/* ---------------------------------------------------- */
+/* PANTALLA 2: MÓVIL GRANDE (min-width: 480px) */
+/* ---------------------------------------------------- */
+@media screen and (min-width: 480px) {
+    body {
+        /* Cambio de color (Pantalla 2: Morado) */
+        background-color: purple;
+    }
+
+    /* La navegación se pone horizontal (Flexbox) */
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    nav li {
+        padding: 0;
+    }
+
+    /* Los proyectos se muestran en dos columnas */
+    #proyectos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .proyecto {
+        /* Cada proyecto ocupa casi la mitad del ancho */
+        flex: 1 1 calc(50% - 15px); 
+        background: white;
+        padding: 1em;
+        border-radius: 8px;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* PANTALLA 3: TABLETA (min-width: 768px) */
+/* ---------------------------------------------------- */
+@media screen and (min-width: 768px) {
+    body {
+        /* Cambio de color (Pantalla 3: Naranja) */
+        background-color: orange;
+    }
+    
+    /* Centrar el contenido y darle un ancho máximo */
+    main {
+        max-width: 750px;
+        margin: auto;
+    }
+
+    /* La sección "Acerca de Mí" usa Grid para imagen y texto */
+    #acerca-de {
+        display: grid;
+        grid-template-columns: 150px 1fr; 
+        gap: 30px;
+        align-items: center;
+    }
+    
+    #acerca-de figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%; 
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* PANTALLA 4: ESCRITORIO PEQUEÑO (min-width: 1024px) */
+/* ---------------------------------------------------- */
+@media screen and (min-width: 1024px) {
+    body {
+        /* Cambio de color (Pantalla 4: Rojo) */
+        background-color: red;
+    }
+
+    main {
+        max-width: 1000px;
+    }
+
+    /* Header con navegación a la derecha */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
+
+    /* Proyectos en 3 columnas iguales */
+    #proyectos {
+        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+        gap: 20px;
+    }
+    .proyecto {
+        /* Desactivamos el flex para el grid */
+        flex: initial; 
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* PANTALLA 5: ESCRITORIO GRANDE (min-width: 1280px) */
+/* ---------------------------------------------------- */
+@media screen and (min-width: 1280px) {
+    body {
+        /* Cambio de color (Pantalla 5: Verde Claro) */
+        background-color: lightgreen;
+    }
+
+    main {
+        max-width: 1200px;
+    }
+
+    /* El formulario de contacto se divide en dos columnas */
+    #contacto form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    #contacto form label {
+        grid-column: 1 / 2; /* Las etiquetas quedan en la primera columna */
+    }
+
+    #contacto form input,
+    #contacto form textarea,
+    #contacto form button {
+        grid-column: 1 / 3; /* Estos elementos ocupan todo el ancho */
+    }
+    
+    #contacto form input:nth-of-type(1) { 
+        grid-column: 2 / 3; /* El primer input va a la segunda columna (ejemplo) */
+    }
 }
